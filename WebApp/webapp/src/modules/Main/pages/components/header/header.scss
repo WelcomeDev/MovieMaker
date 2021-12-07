@@ -1,5 +1,6 @@
 @import "src/styles/alignment";
 @import "src/styles/colors";
+@import "src/styles/fonts";
 
 .header {
   background: transparent;
@@ -28,5 +29,11 @@
     max-width: 600px;
     display: flex;
     justify-content: space-around;
+
+    li {
+      @include label-1;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
   }
 }

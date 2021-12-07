@@ -1,5 +1,22 @@
 @mixin header {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 37px;
+}
+
+@mixin label-1 {
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.2em;
+}
+
+@mixin label-2 {
   font-size: 16px;
   line-height: 26px;
   letter-spacing: 0.1em;
+}
+
+@mixin text-1 {
+  font-size: 16px;
+  line-height: 26px;
 }

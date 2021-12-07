@@ -1,6 +1,6 @@
 import { Navigation } from '../../main/navigation';
 
-export interface HeaderItem {
+export interface NavigationItem {
     title: string;
     icon: string;
     navigation: Navigation;
@@ -8,7 +8,7 @@ export interface HeaderItem {
 
 const {CONTACTS, HELLO, WORKS, ABOUT_AUTHOR} = Navigation;
 
-export const navigationSource: HeaderItem[] = [
+export const navigationSource: NavigationItem[] = [
     {
         title: 'главная',
         icon:'',
