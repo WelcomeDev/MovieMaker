@@ -1,0 +1,29 @@
+@import "src/styles/colors";
+@import "src/styles/interractions";
+@import "src/styles/alignment";
+
+.side-navigator {
+  @include flex(true);
+  position: absolute;
+  right: 0;
+  row-gap: 24px;
+  top: calc(50% - 168px + 50px);
+
+  &__nav-item {
+    @include interactive-background($foreground-secondary-color, true);
+    width: 24px;
+    height: 24px;
+    transform: scale(0.5);
+    border-radius: 50%;
+    will-change: transform;
+
+    &:hover{
+      transform: scale(0.75);
+    }
+
+    &_active{
+      background: $accent-color;
+      transform: scale(1);
+    }
+  }
+}

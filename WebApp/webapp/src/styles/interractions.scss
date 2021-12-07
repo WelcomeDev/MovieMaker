@@ -1,0 +1,12 @@
+@import "colors";
+
+@mixin interactive-background($color, $makeDark:false) {
+  background: $color;
+  &:hover {
+    @if ($makeDark) {
+      background: blackout($color, 4);
+    } @else {
+      background: highlight($color, 4);
+    }
+  }
+}

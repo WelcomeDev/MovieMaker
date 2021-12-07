@@ -1,0 +1,18 @@
+$background-first-color: #EEEFF1;
+$background-second-color: #F9F9F9;
+
+$foreground-primary-dark-color: #000;
+$foreground-primary-light-color: #fff;
+$foreground-secondary-color: #727272;
+
+$accent-color: #34547A;
+
+$adjust-step: 5;
+
+@function highlight($color, $level){
+  @return adjust-color($color, $red: $adjust-step*$level, $green: $adjust-step*$level, $blue: $adjust-step*$level)
+}
+
+@function blackout($color, $level){
+  @return adjust-color($color, $red: -$adjust-step*$level, $green: -$adjust-step*$level, $blue: -$adjust-step*$level)
+}

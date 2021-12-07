@@ -1,0 +1,32 @@
+@import "src/styles/alignment";
+@import "src/styles/colors";
+
+.header {
+  background: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: $header-height;
+  width: 100%;
+  padding: 2px;
+
+  .header-outer-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .icon {
+      border-radius: 50%;
+      border: 2px $accent-color solid;
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  &__navigation {
+    @include stretch-to-parent;
+    max-width: 600px;
+    display: flex;
+    justify-content: space-around;
+  }
+}
