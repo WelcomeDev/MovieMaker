@@ -1,0 +1,10 @@
+@import "src/styles/alignment";
+@import "../pageBase";
+
+.events-bar {
+  @include page-base;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: 0.33fr 0.33fr 0.33fr;
+}

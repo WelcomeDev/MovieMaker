@@ -1,0 +1,40 @@
+@import "src/styles/alignment";
+@import "src/styles/fonts";
+
+.event-data {
+  @include stretch-to-parent;
+  @include label-2;
+  font-weight: 600;
+
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(4, auto);
+  grid-template-areas:
+      "title date"
+      "client client"
+      "description description"
+      "video video";
+
+  padding: 10px;
+
+  &__title {
+    grid-area: title;
+  }
+
+  &__date {
+    grid-area: date;
+    justify-self: flex-end;
+  }
+
+  &__client {
+    grid-area: client
+  }
+
+  &__description {
+    grid-area: description;
+  }
+
+  &__video {
+    grid-area: video;
+  }
+}

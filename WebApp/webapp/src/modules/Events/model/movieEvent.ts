@@ -16,7 +16,7 @@ export interface EventDto extends t.TypeOf<typeof EventType> {
 
 }
 
-export class Event {
+export class MovieEvent {
     id: string;
     name: string;
     description: string | null;
