@@ -2,29 +2,35 @@ import { NavigationProvider, useNavigation } from './components/hooks/context/na
 import { Header } from './components/header/header';
 import { Navigation } from './main/navigation';
 import { SideNavigator } from './components/navigation/sideNavigator';
+import { HelloPage } from './main/hello/HelloPage';
+import './mainPage.scss';
 
-const {HELLO, CONTACTS, ABOUT_AUTHOR, WORKS} = Navigation;
+const { HELLO, CONTACTS, ABOUT_AUTHOR, WORKS } = Navigation;
 
-function Content(){
-    const {current} = useNavigation();
-    switch (current){
+function Content() {
+    const { current } = useNavigation();
+    switch (current) {
     case HELLO:
-        break;
+        return <HelloPage/>;
     case ABOUT_AUTHOR:
-        break;
+        return <></>;
     case WORKS:
-        break;
+        return <></>;
     case CONTACTS:
-        break;
-
+        return <></>;
+    default:
+        throw new Error('');
     }
 }
 
-export function MainPage(){
+export function MainPage() {
     return (
         <NavigationProvider>
-            <Header/>
-            <SideNavigator/>
+           <div className={'wrapper'}>
+               <Header/>
+               <SideNavigator/>
+               <Content/>
+           </div>
         </NavigationProvider>
-    )
+    );
 }

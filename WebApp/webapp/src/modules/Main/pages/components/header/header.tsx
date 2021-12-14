@@ -1,7 +1,7 @@
 import './header.scss';
 import { navigationSource } from './navigationSource';
 import { useNavigation } from '../hooks/context/navigationContext';
-import appIcon from './assets/icon-movie-maker.png';
+import appIcon from '../../assets/icon-movie-maker.png';
 
 export function Header() {
     const { setNavigation, current } = useNavigation();

@@ -1,0 +1,8 @@
+@import "src/styles/alignment";
+@import "src/styles/colors";
+
+@mixin page-base{
+  @include stretch-to-parent;
+  padding-top: $header-height;
+  overflow: hidden;
+}

@@ -1,4 +1,7 @@
+@import "alignment";
+
 .container{
+  @include stretch-to-parent;
   max-width: 1240px;
   margin: 0 auto;
 }
