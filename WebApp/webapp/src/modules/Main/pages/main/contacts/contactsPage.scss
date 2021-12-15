@@ -1,9 +1,15 @@
+@import "../pageBase";
+
 %base-contact-input {
   padding: 15px 20px;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
-
 .contacts-page {
+  @include page-base;
+
   .contacts-page__form {
     display: grid;
     align-items: center;
@@ -17,6 +23,12 @@
     row-gap: 20px;
     column-gap: 30px;
 
+    &__name,
+    &__email,
+    &_message {
+      @extend %base-contact-input;
+    }
+
     &__name {
       grid-area: name;
     }
@@ -27,6 +39,8 @@
 
     &__message {
       grid-area: message;
+      align-self: stretch;
+      justify-self: stretch;
     }
 
     &__submit {

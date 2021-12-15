@@ -18,6 +18,8 @@
   column-gap: 60px;
 
   .hello__page__image {
+    position: relative;
+
     display: grid;
     align-self: center;
     justify-self: center;
@@ -28,16 +30,22 @@
         "ie ."
         ". davinci"
         "pr .";
-
+    padding: 10px;
     grid-area: image;
     align-items: center;
     justify-content: center;
+
+    &_background {
+      position: absolute;
+      border-radius: 50%;
+    }
 
     .ie,
     .davinci,
     .pr {
       max-width: 250px;
       max-height: 250px;
+      z-index: 10;
     }
 
     .ie {

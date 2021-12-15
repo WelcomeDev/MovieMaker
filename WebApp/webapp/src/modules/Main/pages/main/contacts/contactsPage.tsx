@@ -30,8 +30,7 @@ export function ContactsPage() {
                     placeholder={'Ваше e-mail'}
                     {...register('email', emailValidator)}
                 />
-                <input
-                    type="text"
+                <textarea
                     className={'contacts-page__form__message'}
                     placeholder={'Расскажите о вашей идее!'}
                     {...register('message', messageValidator)}

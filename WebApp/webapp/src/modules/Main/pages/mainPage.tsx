@@ -7,14 +7,15 @@ import { EventStoreProvider } from './main/works/hooks/eventStoreProvider';
 import { lazy, Suspense, useCallback, useEffect } from 'react';
 import { useDebounce } from '../../General/hooks/useDebounce';
 
-const { HELLO, CONTACTS, ABOUT_AUTHOR, WORKS } = Navigation;
+const { HELLO, CONTACTS, WORKS } = Navigation;
 
 const SCROLL_DELAY = 250;
-
 const WorksPage = lazy(() => import('./main/works/worksPage')
     .then(({ WorksPage }) => ({ default: WorksPage })));
 const HelloPage = lazy(() => import('./main/hello/helloPage')
     .then(({ HelloPage }) => ({ default: HelloPage })));
+const ContactsPage = lazy(() => import('./main/contacts/contactsPage')
+    .then(({ ContactsPage }) => ({ default: ContactsPage })));
 
 function Content() {
     const { current, moveDown, moveUp } = useNavigation();
@@ -36,12 +37,10 @@ function Content() {
     switch (current) {
     case HELLO:
         return <HelloPage/>;
-    case ABOUT_AUTHOR:
-        return <></>;
     case WORKS:
         return <WorksPage/>;
     case CONTACTS:
-        return <></>;
+        return <ContactsPage/>;
     default:
         throw new Error('');
     }
