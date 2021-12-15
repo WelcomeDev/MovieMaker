@@ -1,0 +1,36 @@
+%base-contact-input {
+  padding: 15px 20px;
+}
+
+
+.contacts-page {
+  .contacts-page__form {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-rows: 50px minmax(50px, 175px) auto;
+    grid-template-columns: auto auto;
+    grid-template-areas:
+        "name email"
+        "message message"
+        "submit submit";
+    row-gap: 20px;
+    column-gap: 30px;
+
+    &__name {
+      grid-area: name;
+    }
+
+    &__email {
+      grid-area: email;
+    }
+
+    &__message {
+      grid-area: message;
+    }
+
+    &__submit {
+      grid-area: submit;
+    }
+  }
+}
