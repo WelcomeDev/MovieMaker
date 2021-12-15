@@ -1,5 +1,5 @@
 import './eventItem.scss';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { MovieEvent } from 'src/modules/Events/model/movieEvent';
 import classNames from 'classnames';
 import { EventData } from '../eventData/eventData';
@@ -38,13 +38,11 @@ export function EventItem(props: EventProps) {
                     style={{ opacity: isHover ? 0.15 : 1 }}
                 />
             </div>
-            {
-                isHover &&
-                <EventData
-                    event={props.event}
-                    className={'event-item__info'}
-                />
-            }
+            <EventData
+                isHover={isHover}
+                event={props.event}
+                className={'event-item__info'}
+            />
         </li>
     );
 }

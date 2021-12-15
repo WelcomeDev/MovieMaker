@@ -1,17 +1,20 @@
 import classNames from 'classnames';
 import { MovieEvent } from '../../../../../Events/model/movieEvent';
 import './eventData.scss';
+import { memo } from 'react';
 
 export interface EventDataProps {
     className: string;
     event: MovieEvent;
+    isHover: boolean;
 }
 
-export function EventData(props: EventDataProps) {
+export const EventData = memo((props: EventDataProps) => {
     const { event, className } = props;
     return (
         <section
             className={classNames(className, 'event-data')}
+            style={{ opacity: props.isHover ? 1 : 0 }}
         >
             <p
                 className={'event-data__title'}
@@ -34,10 +37,11 @@ export function EventData(props: EventDataProps) {
                 {event.description ? event.description : 'Описание отсутствует'}
             </p>
             <button
+                onClick={() => window.open(event.videoUrl, '_blank')}
                 className={'event-data__video'}
             >
                 Материал
             </button>
         </section>
     );
-}
+});

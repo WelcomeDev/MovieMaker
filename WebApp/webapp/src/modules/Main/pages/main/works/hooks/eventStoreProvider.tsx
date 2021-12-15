@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useContext, useEffect, useMemo } from 'react';
-import { EventStore } from '../../store/eventStore';
+import { EventStore } from '../../../../../Events/store/eventStore';
 import { observer } from 'mobx-react';
 
 const eventStoreContext = createContext<EventStore | null>(null);

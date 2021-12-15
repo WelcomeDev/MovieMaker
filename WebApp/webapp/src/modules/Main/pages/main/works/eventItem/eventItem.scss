@@ -39,6 +39,7 @@ $event-item-size: 100%;
         max-width: 100%;
         opacity: 1;
         transition: opacity 0.5s;
+        user-select: none;
       }
 
       .display {

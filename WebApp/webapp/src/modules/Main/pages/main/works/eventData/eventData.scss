@@ -1,12 +1,19 @@
 @import "src/styles/alignment";
 @import "src/styles/fonts";
+@import "src/styles/colors";
+@import "src/styles/interractions";
+@import "src/styles/inputs/buttons";
 
 .event-data {
   @include stretch-to-parent;
   @include label-2;
   font-weight: 600;
+  opacity: 0;
+  transition: opacity 1s;
 
   display: grid;
+  align-items: center;
+  justify-self: center;
   grid-template-columns: repeat(2, auto);
   grid-template-rows: repeat(4, auto);
   grid-template-areas:
@@ -19,6 +26,7 @@
 
   &__title {
     grid-area: title;
+    @include header;
   }
 
   &__date {
@@ -36,5 +44,9 @@
 
   &__video {
     grid-area: video;
+    @extend %button-base;
+    @include interactive-background($accent-second-color);
+    justify-self: center;
+    align-self: center;
   }
 }
