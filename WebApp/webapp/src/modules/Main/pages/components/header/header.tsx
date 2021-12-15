@@ -1,10 +1,12 @@
 import './header.scss';
-import { navigationSource } from './navigationSource';
+import { navigationSource } from '../navigationSource';
 import { useNavigation } from '../hooks/context/navigationContext';
 import appIcon from '../../assets/icon-movie-maker.png';
+import { memo } from 'react';
 
-export function Header() {
-    const { setNavigation, current } = useNavigation();
+export const Header = memo(() => {
+    console.log('Header rerendered');
+    const { setNavigation } = useNavigation();
     return (
         <nav
             className={'header'}
@@ -35,4 +37,4 @@ export function Header() {
             </div>
         </nav>
     );
-}
+});

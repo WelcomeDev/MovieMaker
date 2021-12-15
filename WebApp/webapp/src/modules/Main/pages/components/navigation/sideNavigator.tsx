@@ -1,8 +1,10 @@
 import './sideNavigator.scss';
-import { navigationSource } from '../header/navigationSource';
+import { navigationSource } from '../navigationSource';
 import { SideNavigatorItem } from './sideNavigatorItem/sideNavigatorItem';
+import { memo } from 'react';
 
-export function SideNavigator() {
+export const SideNavigator = () => {
+    console.log('Side navigator rerendered')
     return (
         <section
             className={'side-navigator'}
@@ -12,4 +14,4 @@ export function SideNavigator() {
             }
         </section>
     );
-}
+};

@@ -2,19 +2,37 @@ import { NavigationProvider, useNavigation } from './components/hooks/context/na
 import { Header } from './components/header/header';
 import { Navigation } from './main/navigation';
 import { SideNavigator } from './components/navigation/sideNavigator';
-import { HelloPage } from './main/hello/helloPage';
 import './mainPage.scss';
-import { EventStoreProvider } from '../../Events/hooks/context/eventStoreProvider';
-import { WorksPage } from './main/works/worksPage';
-import { useEffect } from 'react';
+import { EventStoreProvider } from './main/works/hooks/eventStoreProvider';
+import { lazy, Suspense, useCallback, useEffect } from 'react';
+import { useDebounce } from '../../General/hooks/useDebounce';
 
 const { HELLO, CONTACTS, ABOUT_AUTHOR, WORKS } = Navigation;
 
+const SCROLL_DELAY = 250;
+
+const WorksPage = lazy(() => import('./main/works/worksPage')
+    .then(({ WorksPage }) => ({ default: WorksPage })));
+const HelloPage = lazy(() => import('./main/hello/helloPage')
+    .then(({ HelloPage }) => ({ default: HelloPage })));
+
 function Content() {
-    const { current } = useNavigation();
-    useEffect(()=>{
-        console.log(current);
-    },[current])
+    const { current, moveDown, moveUp } = useNavigation();
+    const scrollPage = useDebounce<WheelEvent>(e => scroll(e), SCROLL_DELAY);
+
+    const scroll = useCallback(
+        (e: WheelEvent) => {
+            console.log('invoked!');
+            // e.deltaY < 0 ? moveDown() : moveUp();
+        },
+        []);
+
+    useEffect(
+        () => {
+            document.addEventListener('wheel', scrollPage);
+        },
+        []);
+
     switch (current) {
     case HELLO:
         return <HelloPage/>;
@@ -30,13 +48,16 @@ function Content() {
 }
 
 export function MainPage() {
+    console.log('Main page rerendered');
     return (
         <NavigationProvider>
             <EventStoreProvider>
                 <div className={'wrapper'}>
                     <Header/>
                     <SideNavigator/>
-                    <Content/>
+                    <Suspense fallback={'Loading'}>
+                        <Content/>
+                    </Suspense>
                 </div>
             </EventStoreProvider>
         </NavigationProvider>

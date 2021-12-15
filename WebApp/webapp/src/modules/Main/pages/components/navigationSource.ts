@@ -1,4 +1,4 @@
-import { Navigation } from '../../main/navigation';
+import { Navigation } from '../main/navigation';
 
 export interface NavigationItem {
     title: string;
@@ -14,11 +14,11 @@ export const navigationSource: NavigationItem[] = [
         icon:'',
         navigation: HELLO,
     },
-    {
-        title: 'об авторе',
-        icon:'',
-        navigation: ABOUT_AUTHOR,
-    },
+    // {
+    //     title: 'об авторе',
+    //     icon:'',
+    //     navigation: ABOUT_AUTHOR,
+    // },
     {
         title: 'работы',
         icon:'',

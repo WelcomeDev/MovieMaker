@@ -1,7 +1,7 @@
 import './helloPage.scss';
-import ae from '../../assets/hello/ae_logo.png';
-import davinci from '../../assets/hello/davinci_logo.png';
-import pr from '../../assets/hello/pr_logo.png';
+import ae from './assets/ae_logo.png';
+import davinci from './assets/davinci_logo.png';
+import pr from './assets/pr_logo.png';
 
 export function HelloPage() {
     return (
