@@ -5,12 +5,12 @@ import { SideNavigatorItem } from './sideNavigatorItem/sideNavigatorItem';
 export const SideNavigator = () => {
     console.log('Side navigator rerendered')
     return (
-        <section
+        <nav
             className={'side-navigator'}
         >
             {
                 navigationSource.map(item => <SideNavigatorItem {...item}/>)
             }
-        </section>
+        </nav>
     );
 };

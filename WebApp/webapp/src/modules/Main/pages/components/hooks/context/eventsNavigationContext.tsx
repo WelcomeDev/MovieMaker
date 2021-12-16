@@ -1,5 +1,5 @@
-import { createContext, memo, ReactNode, useContext, useEffect, useMemo } from 'react';
-import { EventsNavigation, Navigation } from '../../../../../EventsPubic/pages/navigation';
+import { createContext, memo, ReactNode, useContext, useMemo } from 'react';
+import { EventsNavigation} from '../../../../../EventsPubic/pages/navigation';
 import { Action } from '../../../../../../lib/interfaces/action';
 import { useLocation, useNavigate, Location } from 'react-router-dom';
 
@@ -25,13 +25,6 @@ export const EventsNavigationProvider = memo(({ children }: { children: ReactNod
     const navigate = useNavigate();
     const location = useLocation();
     const navigationList = useMemo(() => [HELLO, ABOUT_AUTHOR, WORKS, CONTACTS], []);
-
-    useEffect(
-        () => {
-            if (location.pathname === '/')
-                navigate(HELLO);
-        },
-        []);
 
     function moveUp() {
         const ind = navigationList.indexOf(location.pathname as EventsNavigation);

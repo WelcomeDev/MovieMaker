@@ -3,11 +3,11 @@ export enum Navigation {
     AUTH = 'auth'
 }
 
-export enum EventsNavigation {
-    HELLO = 'hello',
-    ABOUT_AUTHOR = 'about',
-    WORKS = 'works',
-    CONTACTS = 'contacts',
+export enum EventsNavigation{
+    'HELLO' = '/events/hello',
+    'ABOUT_AUTHOR' = '/events/about',
+    'WORKS' = '/events/works',
+    'CONTACTS' = '/events/contacts',
 }
 
 export enum ProtectedNavigation {

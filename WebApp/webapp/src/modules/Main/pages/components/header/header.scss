@@ -30,8 +30,9 @@
     display: flex;
     justify-content: space-around;
 
-    li {
+    &__item {
       @include label-1;
+      color: inherit;
       text-transform: uppercase;
       cursor: pointer;
     }
