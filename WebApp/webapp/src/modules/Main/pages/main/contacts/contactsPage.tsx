@@ -1,50 +1,24 @@
-import { useContactForm } from './hooks/useContactForm';
-import { emailValidator, messageValidator, nameValidator } from './contactsValidators';
 import './contactsPage.scss';
+import { Footer } from './footer/footer';
+import { ContactForm } from './contactForm/contactForm';
 
 export function ContactsPage() {
-    const { register, onSubmit, isValid } = useContactForm();
+
     // todo: переделать на компонент, который принимает еше и ошибку в пропсах
     // todo: проверить с мемо!
     return (
         <div
-            className={'contacts-page'}
+            className={'container'}
         >
-            <form
-                action="#"
-                className={'contacts-page__form'}
-                onSubmit={e => {
-                    e.preventDefault();
-                    onSubmit();
-                }}
+            <div
+                className={'contacts-page'}
             >
-                <input
-                    type="text"
-                    className={'contacts-page__form__name'}
-                    placeholder={'Ваше имя'}
-                    {...register('name', nameValidator)}
-                />
-                <input
-                    type="text"
-                    className={'contacts-page__form__email'}
-                    placeholder={'Ваше e-mail'}
-                    {...register('email', emailValidator)}
-                />
-                <textarea
-                    className={'contacts-page__form__message'}
-                    placeholder={'Расскажите о вашей идее!'}
-                    {...register('message', messageValidator)}
-                />
-                <button
-                    className={'contacts-page__form__submit'}
-                    disabled={!isValid}
-                >
-                    Отправить
-                </button>
-            </form>
-            <footer>
-
-            </footer>
+                <h2>Хотите видеоролик?</h2>
+                <p>Свяжитесь с нами прямо сейчас! Мы вам обязательно ответим в ближайшее время, чтобы обсудить
+                    подробности!</p>
+                <ContactForm/>
+                <Footer/>
+            </div>
         </div>
     );
 }

@@ -1,50 +1,6 @@
 @import "../pageBase";
 
-%base-contact-input {
-  padding: 15px 20px;
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
 .contacts-page {
   @include page-base;
-
-  .contacts-page__form {
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    grid-template-rows: 50px minmax(50px, 175px) auto;
-    grid-template-columns: auto auto;
-    grid-template-areas:
-        "name email"
-        "message message"
-        "submit submit";
-    row-gap: 20px;
-    column-gap: 30px;
-
-    &__name,
-    &__email,
-    &_message {
-      @extend %base-contact-input;
-    }
-
-    &__name {
-      grid-area: name;
-    }
-
-    &__email {
-      grid-area: email;
-    }
-
-    &__message {
-      grid-area: message;
-      align-self: stretch;
-      justify-self: stretch;
-    }
-
-    &__submit {
-      grid-area: submit;
-    }
-  }
+  position: relative;
 }
