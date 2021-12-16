@@ -13,33 +13,31 @@ const images = [
 
 export const WorksPage = observer(() => {
     const { events } = useEventStore();
+    // todo: remove!
     let n;
     for (let i = 0; i < 1e8; i++) {
         n = i * i;
     }
     return (
-        <div
-            className={'container'}
+        <section
+
+            className={'work-page'}
         >
             <div
-                className={'work-page'}
+                className={'events-bar'}
             >
-                <div
-                    className={'events-bar'}
-                >
-                    {
-                        events
-                            .filter(item => item.isShown)
-                            .map((item, index) =>
-                                <EventItem
-                                    displayType={index % 2 === 0 ? 'light' : 'dark'}
-                                    key={item.id}
-                                    event={item}
-                                    icon={images[index % images.length]}
-                                />)
-                    }
-                </div>
+                {
+                    events
+                        .filter(item => item.isShown)
+                        .map((item, index) =>
+                            <EventItem
+                                displayType={index % 2 === 0 ? 'light' : 'dark'}
+                                key={item.id}
+                                event={item}
+                                icon={images[index % images.length]}
+                            />)
+                }
             </div>
-        </div>
+        </section>
     );
 });

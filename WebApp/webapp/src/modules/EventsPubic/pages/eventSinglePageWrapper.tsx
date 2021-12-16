@@ -1,8 +1,7 @@
-import { lazy, Suspense, useCallback, useEffect } from 'react';
+import { lazy, Suspense } from 'react';
 import { useEventsNavigation } from '../../Main/pages/components/hooks/context/eventsNavigationContext';
-import { useDebounce } from '../../General/hooks/useDebounce';
+import './singlePage.scss';
 
-const SCROLL_DELAY = 250;
 const WorksPage = lazy(() => import('../../EventsPubic/pages/works/worksPage')
     .then(({ WorksPage }) => ({ default: WorksPage })));
 const HelloPage = lazy(() => import('../../EventsPubic/pages/hello/helloPage')
@@ -12,31 +11,24 @@ const ContactsPage = lazy(() => import('../../EventsPubic/pages/contacts/contact
 
 export function EventSinglePageWrapper() {
 
-    const { moveDown, moveUp } = useEventsNavigation();
-    const scrollPage = useDebounce<WheelEvent>(e => scroll(e), SCROLL_DELAY);
-
-    const scroll = useCallback(
-        (e: WheelEvent) => {
-            console.log('invoked!');
-            // e.deltaY < 0 ? moveDown() : moveUp();
-        },
-        []);
-
-    useEffect(
-        () => {
-            document.addEventListener('wheel', scrollPage);
-        },
-        []);
+    const { transformShift } = useEventsNavigation();
 
     return (
-        <Suspense fallback={'Loading'}>
-            <div
-                className={'single-page'}
+        <div
+            className={'container'}
+        >
+            <Suspense
+                fallback={'Loading'}
             >
-                <HelloPage/>
-                <WorksPage/>
-                <ContactsPage/>
-            </div>
-        </Suspense>
+                <div
+                    className={'single-page'}
+                    style={{ transform: `translateY(${transformShift}px)` }}
+                >
+                    <HelloPage/>
+                    <WorksPage/>
+                    <ContactsPage/>
+                </div>
+            </Suspense>
+        </div>
     );
 }

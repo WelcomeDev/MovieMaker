@@ -32,7 +32,7 @@ const MainRoutes = () => {
             <Route
                 // @ts-ignore
                 index
-                path={EVENTS}
+                path={`${EVENTS}/*`}
                 element={<EventSinglePageWrapper/>}
             >
             </Route>
