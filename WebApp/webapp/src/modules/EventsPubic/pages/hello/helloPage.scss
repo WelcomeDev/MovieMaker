@@ -1,11 +1,10 @@
-@import "../pageBase";
-@import "src/styles/colors";
-@import "src/styles/fonts";
-@import "src/styles/inputs/buttons";
-@import "src/styles/interractions";
+@import "../../../../styles/colors";
+@import "../../../../styles/fonts";
+@import "../../../../styles/inputs/buttons";
+@import "../../../../styles/interractions";
 
 .hello__content {
-  @include page-base;
+  @include stretch-to-parent;;
   display: grid;
   user-select: none;
 

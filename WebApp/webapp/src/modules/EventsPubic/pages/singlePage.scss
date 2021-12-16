@@ -1,0 +1,8 @@
+@import "../../../styles/alignment";
+@import "../../../styles/colors";
+
+.single-page{
+  @include stretch-to-parent;
+  padding-top: $header-height;
+  overflow: hidden;
+}

@@ -1,7 +1,7 @@
 import classNames from 'classnames';
-import { MovieEvent } from '../../../../../Events/model/movieEvent';
 import './eventData.scss';
 import { memo } from 'react';
+import { MovieEvent } from '../../../model/movieEvent';
 
 export interface EventDataProps {
     className: string;

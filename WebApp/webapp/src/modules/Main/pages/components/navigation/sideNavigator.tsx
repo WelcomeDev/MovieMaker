@@ -1,7 +1,6 @@
 import './sideNavigator.scss';
-import { navigationSource } from '../navigationSource';
+import { navigationSource } from '../hooks/navigationSource';
 import { SideNavigatorItem } from './sideNavigatorItem/sideNavigatorItem';
-import { memo } from 'react';
 
 export const SideNavigator = () => {
     console.log('Side navigator rerendered')

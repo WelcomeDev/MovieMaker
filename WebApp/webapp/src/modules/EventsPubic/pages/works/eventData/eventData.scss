@@ -1,8 +1,8 @@
-@import "src/styles/alignment";
-@import "src/styles/fonts";
-@import "src/styles/colors";
-@import "src/styles/interractions";
-@import "src/styles/inputs/buttons";
+@import "../../../../../styles/alignment";
+@import "../../../../../styles/fonts";
+@import "../../../../../styles/colors";
+@import "../../../../../styles/interractions";
+@import "../../../../../styles/inputs/buttons";
 
 .event-data {
   @include stretch-to-parent;

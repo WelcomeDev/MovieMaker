@@ -1,8 +1,8 @@
 import './eventItem.scss';
 import { useState } from 'react';
-import { MovieEvent } from 'src/modules/Events/model/movieEvent';
 import classNames from 'classnames';
 import { EventData } from '../eventData/eventData';
+import { MovieEvent } from '../../../model/movieEvent';
 
 export type DisplayType = 'light' | 'dark';
 

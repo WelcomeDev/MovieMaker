@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import { NeedEventParams } from '../../../../../Events/params/needEventParams';
+import { NeedEventParams } from '../../../params/needEventParams';
 
 export function useContactForm() {
     const { register, formState: { isValid, errors } } = useForm<NeedEventParams>(

@@ -1,12 +1,11 @@
 import './header.scss';
-import { navigationSource } from '../navigationSource';
-import { useNavigation } from '../hooks/context/navigationContext';
+import { navigationSource } from '../hooks/navigationSource';
 import appIcon from '../../assets/icon-movie-maker.png';
 import { memo } from 'react';
+import { Link } from 'react-router-dom';
 
 export const Header = memo(() => {
     console.log('Header rerendered');
-    const { setNavigation } = useNavigation();
     return (
         <nav
             className={'header'}
@@ -26,11 +25,12 @@ export const Header = memo(() => {
                         className={'header__navigation'}
                     >
                         {
-                            navigationSource.map(item => <li
-                                onClick={() => setNavigation(item.navigation)}
+                            navigationSource.map(item => <Link
+                                key={item.navigation}
+                                to={item.navigation}
                             >
                                 {item.title}
-                            </li>)
+                            </Link>)
                         }
                     </ul>
                 </div>

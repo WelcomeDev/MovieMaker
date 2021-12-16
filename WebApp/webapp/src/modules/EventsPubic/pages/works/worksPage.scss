@@ -1,8 +1,7 @@
-@import "src/styles/alignment";
-@import "../pageBase";
+@import "../../../../styles/alignment";
 
 .events-bar {
-  @include page-base;
+  @include stretch-to-parent;
   margin: 0 auto;
   display: grid;
   grid-template-rows: auto auto;

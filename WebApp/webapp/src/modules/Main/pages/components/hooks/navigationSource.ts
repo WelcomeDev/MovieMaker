@@ -1,17 +1,17 @@
-import { Navigation } from '../main/navigation';
+import { EventsNavigation, NavigationType } from '../../../../EventsPubic/pages/navigation';
 
 export interface NavigationItem {
     title: string;
     icon: string;
-    navigation: Navigation;
+    navigation: NavigationType;
 }
 
-const {CONTACTS, HELLO, WORKS, ABOUT_AUTHOR} = Navigation;
+const { CONTACTS, HELLO, WORKS } = EventsNavigation;
 
 export const navigationSource: NavigationItem[] = [
     {
         title: 'главная',
-        icon:'',
+        icon: '',
         navigation: HELLO,
     },
     // {
@@ -21,12 +21,12 @@ export const navigationSource: NavigationItem[] = [
     // },
     {
         title: 'работы',
-        icon:'',
+        icon: '',
         navigation: WORKS,
     },
     {
         title: 'контакты',
-        icon:'',
+        icon: '',
         navigation: CONTACTS,
     },
 ];

@@ -1,64 +1,45 @@
-import { NavigationProvider, useNavigation } from './components/hooks/context/navigationContext';
+import { EventsNavigationProvider } from './components/hooks/context/eventsNavigationContext';
 import { Header } from './components/header/header';
-import { Navigation } from './main/navigation';
+import { Navigation } from '../../EventsPubic/pages/navigation';
 import { SideNavigator } from './components/navigation/sideNavigator';
 import './mainPage.scss';
-import { EventStoreProvider } from './main/works/hooks/eventStoreProvider';
-import { lazy, Suspense, useCallback, useEffect } from 'react';
-import { useDebounce } from '../../General/hooks/useDebounce';
+import { EventStoreProvider } from '../../EventsPubic/pages/works/hooks/eventStoreProvider';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { NotFound } from './notFound/notFound';
+import { AuthPage } from '../../Auth/pages/authPage';
+import { EventSinglePageWrapper } from 'src/modules/EventsPubic/pages/eventSinglePageWrapper';
 
-const { HELLO, CONTACTS, WORKS } = Navigation;
-
-const SCROLL_DELAY = 250;
-const WorksPage = lazy(() => import('./main/works/worksPage')
-    .then(({ WorksPage }) => ({ default: WorksPage })));
-const HelloPage = lazy(() => import('./main/hello/helloPage')
-    .then(({ HelloPage }) => ({ default: HelloPage })));
-const ContactsPage = lazy(() => import('./main/contacts/contactsPage')
-    .then(({ ContactsPage }) => ({ default: ContactsPage })));
-
-function Content() {
-    const { current, moveDown, moveUp } = useNavigation();
-    const scrollPage = useDebounce<WheelEvent>(e => scroll(e), SCROLL_DELAY);
-
-    const scroll = useCallback(
-        (e: WheelEvent) => {
-            console.log('invoked!');
-            // e.deltaY < 0 ? moveDown() : moveUp();
-        },
-        []);
-
-    useEffect(
-        () => {
-            document.addEventListener('wheel', scrollPage);
-        },
-        []);
-
-    switch (current) {
-    case HELLO:
-        return <HelloPage/>;
-    case WORKS:
-        return <WorksPage/>;
-    case CONTACTS:
-        return <ContactsPage/>;
-    default:
-        throw new Error('');
-    }
-}
+const { EVENTS, AUTH } = Navigation;
 
 export function MainPage() {
     console.log('Main page rerendered');
     return (
-        <NavigationProvider>
-            <EventStoreProvider>
+        <BrowserRouter>
+            <EventsNavigationProvider>
                 <div className={'wrapper'}>
                     <Header/>
                     <SideNavigator/>
-                    <Suspense fallback={'Loading'}>
-                        <Content/>
-                    </Suspense>
+                    <EventStoreProvider>
+                        <Routes>
+                            <Route
+                                // @ts-ignore
+                                index
+                                path={EVENTS}
+                                element={<EventSinglePageWrapper/>}
+                            >
+                            </Route>
+                            <Route
+                                path={AUTH}
+                                element={<AuthPage/>}
+                            />
+                            <Route
+                                path={'*'}
+                                element={<NotFound/>}
+                            />
+                        </Routes>
+                    </EventStoreProvider>
                 </div>
-            </EventStoreProvider>
-        </NavigationProvider>
+            </EventsNavigationProvider>
+        </BrowserRouter>
     );
 }

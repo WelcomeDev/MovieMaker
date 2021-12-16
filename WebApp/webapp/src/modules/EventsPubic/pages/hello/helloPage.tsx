@@ -2,7 +2,7 @@ import './helloPage.scss';
 import ae from './assets/ae_logo.png';
 import davinci from './assets/davinci_logo.png';
 import pr from './assets/pr_logo.png';
-import logo from '../../assets/icon-movie-maker.png';
+import logo from '../../../Main/pages/assets/icon-movie-maker.png';
 
 export function HelloPage() {
     return (

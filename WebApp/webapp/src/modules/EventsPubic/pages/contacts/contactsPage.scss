@@ -1,0 +1,6 @@
+@import "src/styles/alignment";
+
+.contacts-page {
+  @include stretch-to-parent;
+  position: relative;
+}

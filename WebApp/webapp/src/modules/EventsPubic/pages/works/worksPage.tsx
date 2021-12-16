@@ -3,8 +3,8 @@ import { useEventStore } from './hooks/eventStoreProvider';
 import { EventItem } from './eventItem/eventItem';
 import { observer } from 'mobx-react';
 // import cameraMan from 'src/modules/Main/pages/assets/services/service_camera_man.svg';
-import director from 'src/modules/Main/pages/main/works/assets/service_director.svg';
-import motionDesign from 'src/modules/Main/pages/main/works/assets/service_motion_design.svg';
+import director from 'src/modules/EventsPubic/pages/works/assets/service_director.svg';
+import motionDesign from 'src/modules/EventsPubic/pages/works/assets/service_motion_design.svg';
 // import movieMaker from 'src/modules/Main/pages/assets/services/service_movie_maker.svg';
 
 const images = [

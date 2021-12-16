@@ -1,23 +1,24 @@
 import classNames from 'classnames';
-import { NavigationItem } from '../../navigationSource';
-import { useNavigation } from '../../hooks/context/navigationContext';
+import { NavigationItem } from '../../hooks/navigationSource';
+import { useEventsNavigation } from '../../hooks/context/eventsNavigationContext';
 import './sideNavigatorItem.scss';
+import { Link } from 'react-router-dom';
 
 export function SideNavigatorItem(item: NavigationItem) {
-    const { current, setNavigation } = useNavigation();
+    const { location } = useEventsNavigation();
     return (
         <section
             id={item.navigation}
             className={'side-navigator__nav-item'}>
-            <div
+            <Link
                 className={classNames(
                     'bubble',
                     {
-                        'bubble_active': current === item.navigation,
+                        'bubble_active': location.pathname === item.navigation,
                     })}
-                onClick={() => setNavigation(item.navigation)}
+                to={item.navigation}
             >
-            </div>
+            </Link>
             <p
                 className={'text'}
             >
