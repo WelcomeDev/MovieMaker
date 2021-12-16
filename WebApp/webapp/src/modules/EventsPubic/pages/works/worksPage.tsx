@@ -14,13 +14,12 @@ const images = [
 export const WorksPage = observer(() => {
     const { events } = useEventStore();
     // todo: remove!
-    let n;
-    for (let i = 0; i < 1e8; i++) {
-        n = i * i;
-    }
+    // let n;
+    // for (let i = 0; i < 1e8; i++) {
+    //     n = i * i;
+    // }
     return (
         <section
-
             className={'work-page'}
         >
             <div

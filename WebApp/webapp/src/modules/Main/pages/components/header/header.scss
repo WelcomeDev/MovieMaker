@@ -10,6 +10,7 @@
   height: $header-height;
   width: 100%;
   padding: 2px;
+  z-index: 1000;
 
   .header-outer-wrapper {
     display: flex;

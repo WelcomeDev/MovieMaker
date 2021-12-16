@@ -1,6 +1,9 @@
 @import "src/styles/alignment";
 
 .contacts-page {
-  @include stretch-to-parent;
   position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

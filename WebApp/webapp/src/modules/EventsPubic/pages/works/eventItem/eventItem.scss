@@ -3,54 +3,49 @@
 
 $event-item-size: 100%;
 
-.work-page {
-  @include stretch-to-parent;
-  padding: 40px 0;
+.event-item {
+  display: block;
+  width: $event-item-size;
+  height: $event-item-size;
+  position: relative;
+  margin: auto 0;
 
-  .event-item {
-    display: block;
-    width: $event-item-size;
-    height: $event-item-size;
-    position: relative;
-    margin: auto 0;
+  &_light {
+    background-color: $background-second-color-light;
+    color: $foreground-primary-dark-color;
+  }
 
-    &_light {
-      background-color: $background-second-color-light;
-      color: $foreground-primary-dark-color;
+  &_dark {
+    background-color: $background-second-color-dark;
+    color: $foreground-primary-light-color;
+  }
+
+  &__icon {
+    @include stretch-to-parent;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2*$border-radius;
+
+    img {
+      max-width: 100%;
+      opacity: 1;
+      transition: opacity 0.5s;
+      user-select: none;
     }
 
-    &_dark {
-      background-color: $background-second-color-dark;
-      color: $foreground-primary-light-color;
+    .display {
+      opacity: 0.2;
     }
+  }
 
-    &__icon {
-      @include stretch-to-parent;
-      position: absolute;
-      top: 0;
-      left: 0;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2*$border-radius;
-
-      img {
-        max-width: 100%;
-        opacity: 1;
-        transition: opacity 0.5s;
-        user-select: none;
-      }
-
-      .display {
-        opacity: 0.2;
-      }
-    }
-
-    &__info {
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
+  &__info {
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 }

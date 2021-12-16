@@ -1,9 +1,10 @@
 @import "../../../../styles/alignment";
 
-.events-bar {
-  @include stretch-to-parent;
-  margin: 0 auto;
-  display: grid;
-  grid-template-rows: auto auto;
-  grid-template-columns: 0.33fr 0.33fr 0.33fr;
+.work-page {
+  .events-bar {
+    @include stretch-to-parent;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 0.33fr 0.33fr 0.33fr;
+  }
 }
