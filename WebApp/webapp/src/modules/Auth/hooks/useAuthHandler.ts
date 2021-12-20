@@ -1,9 +1,12 @@
 import { FieldErrors, useForm } from 'react-hook-form';
 import { AuthParams } from '../params/authParams';
 import { logIn } from '../actions/authActions';
+import { useNavigate } from 'react-router-dom';
+import { ProtectedNavigation } from '../../EventsPubic/pages/navigation';
 
 export function useAuthHandler() {
     // const { setError } = useError();
+    const navigate = useNavigate();
 
     const { handleSubmit, register } = useForm<AuthParams>({
         mode: 'onSubmit',
@@ -29,9 +32,10 @@ export function useAuthHandler() {
                 // todo: add loading here with dots under 'Log in' button
                 logIn(data.username, data.password)
                     .then(() => {
+                        navigate(ProtectedNavigation.EVENTS);
                         // todo: navigate to '/'
-                    })
-                    // .catch(() => setError('Invalid username or password!'));
+                    });
+                // .catch(() => setError('Invalid username or password!'));
             },
             (errors) => displayError(errors),
         )();

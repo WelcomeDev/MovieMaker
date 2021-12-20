@@ -1,6 +1,6 @@
 export enum Navigation {
-    EVENTS = 'events',
-    AUTH = 'auth'
+    EVENTS = '/events',
+    AUTH = '/auth'
 }
 
 export enum EventsNavigation{
