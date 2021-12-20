@@ -1,5 +1,5 @@
 export const globalConfig = {
-    baseUrl: '/api',
-    eventsBaseUrl: '/event',
-    contactBaseUrl: '/contacts',
+    baseUrl: 'https://localhost:7024/api',
+    eventsBaseUrl: 'event',
+    mailBaseUrl: 'mail',
 };

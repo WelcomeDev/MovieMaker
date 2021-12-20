@@ -5,12 +5,12 @@ using MovieMaker.Service.Provider.Di;
 namespace MovieMaker.Service.Controllers.Mails
 {
     [ApiController]
-    [Route("api/mails")]
-    public class AdminContactsController : ControllerBase
+    [Route("api/mail")]
+    public class AdminMailsController : ControllerBase
     {
         private readonly IMailsProvider _provider;
 
-        public AdminContactsController(IMailsProvider provider)
+        public AdminMailsController(IMailsProvider provider)
         {
             _provider = provider;
         }

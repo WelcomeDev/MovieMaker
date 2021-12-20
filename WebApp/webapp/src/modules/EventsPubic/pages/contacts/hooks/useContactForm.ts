@@ -1,9 +1,9 @@
 import { useForm } from 'react-hook-form';
 import { useMemo } from 'react';
-import { ContactEventParams } from '../../../params/contactEventParams';
+import { CreateMailParams } from '../../../params/createMailParams';
 
 export function useContactForm() {
-    const { register, formState: { isValid, errors } } = useForm<ContactEventParams>(
+    const { register, formState: { isValid, errors } } = useForm<CreateMailParams>(
         {
             shouldFocusError: false,
             mode: 'onBlur',

@@ -7,11 +7,11 @@ namespace MovieMaker.Service.Controllers.Mails
 {
     [ApiController]
     [Route("api/mail")]
-    public class PublicContactsController : ControllerBase
+    public class PublicMailsController : ControllerBase
     {
         private readonly IMailsProvider _provider;
 
-        public PublicContactsController(IMailsProvider provider)
+        public PublicMailsController(IMailsProvider provider)
         {
             _provider = provider;
         }
