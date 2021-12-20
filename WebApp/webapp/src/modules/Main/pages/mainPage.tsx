@@ -12,19 +12,32 @@ import { useEffect } from 'react';
 
 const { EVENTS, AUTH } = Navigation;
 
+const PublicPage = () => {
+    return (
+        <EventsNavigationProvider>
+            <div className={'wrapper'}>
+                <Header/>
+                <SideNavigator/>
+                <EventSinglePageWrapper/>
+            </div>
+        </EventsNavigationProvider>
+    );
+};
+
 const MainRoutes = () => {
     const location = useLocation();
     const navigator = useNavigate();
     useEffect(() => {
-        if (location.pathname === '/')
-            navigator(EventsNavigation.HELLO, { replace: true });
-    }, []);
+            if (location.pathname === '/')
+                navigator(EventsNavigation.HELLO, { replace: true });
+        },
+        []);
 
     return (
         <Routes>
             <Route
                 path={`${EVENTS}/*`}
-                element={<EventSinglePageWrapper/>}
+                element={<PublicPage/>}
             >
             </Route>
             <Route
@@ -43,15 +56,9 @@ export function MainPage() {
     console.log('Main page rerendered');
     return (
         <BrowserRouter>
-            <EventsNavigationProvider>
-                <div className={'wrapper'}>
-                    <Header/>
-                    <SideNavigator/>
-                    <EventStoreProvider>
-                        <MainRoutes/>
-                    </EventStoreProvider>
-                </div>
-            </EventsNavigationProvider>
+            <EventStoreProvider>
+                <MainRoutes/>
+            </EventStoreProvider>
         </BrowserRouter>
     );
 }
