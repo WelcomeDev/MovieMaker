@@ -16,8 +16,6 @@
 
         DateTime Date { get; set; }
 
-        byte[] PreviewImg { get; set; }
-
         string Category { get; set; }
     }
 }

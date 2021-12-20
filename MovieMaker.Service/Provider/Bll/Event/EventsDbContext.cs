@@ -6,7 +6,7 @@ namespace MovieMaker.Service.Provider.Bll.Event
 {
     public class EventsDbContext : DbContext
     {
-        public DbSet<Event> Events { get; set; }
+        public DbSet<MovieEvent> Events { get; set; }
 
         public EventsDbContext()
         {

@@ -14,8 +14,6 @@
 
         public DateTime Date { get; set; }
 
-        public byte[] PreviewImg { get; set; }
-
         public string Category { get; set; }
     }
 }

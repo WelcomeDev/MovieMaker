@@ -17,7 +17,7 @@ namespace MovieMaker.Service.Provider.Bll.Event
 
         public async Task<IEvent> Create(CreateEventParams data)
         {
-            var eventInstance = await _context.Events.AddAsync(new Event(data));
+            var eventInstance = await _context.Events.AddAsync(new MovieEvent(data));
             await _context.SaveChangesAsync();
             return eventInstance.Entity;
         }
@@ -28,7 +28,7 @@ namespace MovieMaker.Service.Provider.Bll.Event
             _context.Remove(instance);
         }
 
-        private async Task<Event> GetInstance(Guid id)
+        private async Task<MovieEvent> GetInstance(Guid id)
         {
             return await _context.Events.SingleAsync(x => x.Id.Equals(id));
         }
@@ -55,7 +55,6 @@ namespace MovieMaker.Service.Provider.Bll.Event
             eventEntity.Client = data.Client;
             eventEntity.Date = data.Date;
             eventEntity.Category = data.Category;
-            eventEntity.PreviewImg = data.PreviewImg;
 
             await _context.SaveChangesAsync();
             return eventEntity;

@@ -12,9 +12,6 @@
 
         DateTime Date { get; set; }
 
-        //TODO: figure out how to store Img
-        byte[] PreviewImg { get; set; }
-
         string Category { get; set; }
     }
 }

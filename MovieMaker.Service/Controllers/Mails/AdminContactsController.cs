@@ -5,7 +5,7 @@ using MovieMaker.Service.Provider.Di;
 namespace MovieMaker.Service.Controllers.Mails
 {
     [ApiController]
-    [Route("api/contacts")]
+    [Route("api/mails")]
     public class AdminContactsController : ControllerBase
     {
         private readonly IMailsProvider _provider;
@@ -28,8 +28,8 @@ namespace MovieMaker.Service.Controllers.Mails
         [Route("list")]
         public async Task<IActionResult> List()
         {
-            await _provider.GetUnAnswered();
-            return Ok();
+            var items = await _provider.GetUnAnswered();
+            return Ok(items);
         }
     }
 }

@@ -1,9 +1,13 @@
 ﻿using MovieMaker.Service.Model.Events.Di;
 
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
 namespace MovieMaker.Service.Model.Events.Bll
 {
-    public class Event : IEvent
+    public class MovieEvent : IEvent
     {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
@@ -12,14 +16,13 @@ namespace MovieMaker.Service.Model.Events.Bll
         public string Client { get; set; }
         public DateTime Date { get; set; }
         public string Category { get; set; }
-        public byte[] PreviewImg { get; set; }
 
-        public Event()
+        public MovieEvent()
         {
 
         }
 
-        public Event(IEventCreate eventCreate)
+        public MovieEvent(IEventCreate eventCreate)
         {
             Name = eventCreate.Name;
             Description = eventCreate.Description;
@@ -28,7 +31,6 @@ namespace MovieMaker.Service.Model.Events.Bll
             Client = eventCreate.Client;
             Date = eventCreate.Date;
             Category = eventCreate.Category;
-            PreviewImg = eventCreate.PreviewImg;
         }
     }
 }

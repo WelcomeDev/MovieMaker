@@ -5,6 +5,7 @@ using MovieMaker.Service.Controllers.Event.Dto;
 using MovieMaker.Service.Model.Events.Bll;
 using MovieMaker.Service.Model.Events.Di;
 using MovieMaker.Service.Provider.Bll.Event;
+using MovieMaker.Service.Provider.Bll.Mail;
 using MovieMaker.Service.Provider.Di;
 
 namespace MovieMaker.Service
@@ -24,8 +25,8 @@ namespace MovieMaker.Service
         public static void ConfigureProvider(IServiceCollection services)
         {
             services.AddSingleton<IEventProvider, EventsProvider>();
-            services.AddSingleton<IEventProvider, EventsProvider>();
-            services.AddSingleton<IEventProvider, EventsProvider>();
+            services.AddSingleton<IMailsProvider, MailsProvider>();
+            //services.AddSingleton<IAuthProvider, AuthProvider>();
         }
     }
 }
