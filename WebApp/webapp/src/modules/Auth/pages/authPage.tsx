@@ -1,6 +1,6 @@
 import './authPage.scss';
 import { Password } from './components/password';
-import { Username } from './components/userName';
+import { Username } from './components/username';
 import { useAuthHandler } from '../hooks/useAuthHandler';
 
 export function AuthPage() {

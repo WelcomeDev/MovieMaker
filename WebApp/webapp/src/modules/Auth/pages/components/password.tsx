@@ -2,6 +2,7 @@ import { Icon } from '@iconify/react';
 import { useState } from 'react';
 import './password.scss';
 import { UseFormHookInputProps } from '../../../../lib/interfaces/props/useFormHookInputProps';
+import classNames from 'classnames';
 
 export interface PasswordProps extends UseFormHookInputProps {
     className?: string;
@@ -13,11 +14,11 @@ export function Password(props: PasswordProps) {
     const { register, placeholder, className } = props;
 
     return (
-        <section className={'password-wrapper'}>
+        <label
+            className={classNames('password-wrapper', className)}>
             <input
                 placeholder={placeholder}
                 type={showPassword ? 'text' : 'password'}
-                className={className}
                 {...register}
             />
             <Icon
@@ -25,6 +26,6 @@ export function Password(props: PasswordProps) {
                 className={'toggle-visibility-icon'}
                 onClick={() => setShowPassword(!showPassword)}
             />
-        </section>
+        </label>
     );
 }

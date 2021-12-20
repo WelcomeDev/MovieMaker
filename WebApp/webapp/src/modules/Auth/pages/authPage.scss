@@ -16,6 +16,7 @@
 
   .auth-form {
     @include text-1;
+    background: url("./assets/fingerprint-background.svg") 50%;
     position: relative;
 
     width: 500px;
@@ -30,11 +31,14 @@
 
     &__title {
       @include header;
+      user-select: none;
     }
 
     &__username,
     &__password {
       @extend %base-input;
+      max-height: 50px;
+      max-width: 250px;
     }
 
     &__submit {
