@@ -1,4 +1,6 @@
-﻿namespace MovieMaker.Service.Model.Di
+﻿using MovieMaker.Service.Model.Events.Di;
+
+namespace MovieMaker.Service.Model.Events.Bll
 {
     public class UpdateEventParams : IEventUpdate
     {

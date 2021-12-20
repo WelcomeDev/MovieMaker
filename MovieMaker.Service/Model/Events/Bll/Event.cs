@@ -1,6 +1,6 @@
-﻿using MovieMaker.Service.Model.Di;
+﻿using MovieMaker.Service.Model.Events.Di;
 
-namespace MovieMaker.Service.Model.Bll
+namespace MovieMaker.Service.Model.Events.Bll
 {
     public class Event : IEvent
     {

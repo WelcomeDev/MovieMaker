@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using MovieMaker.Service.Model.Bll;
+using MovieMaker.Service.Model.Events.Bll;
 
 namespace MovieMaker.Service.Provider.Bll
 {

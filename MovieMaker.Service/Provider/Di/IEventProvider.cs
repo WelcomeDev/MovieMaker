@@ -1,5 +1,5 @@
-﻿using MovieMaker.Service.Model.Bll;
-using MovieMaker.Service.Model.Di;
+﻿using MovieMaker.Service.Model.Events.Bll;
+using MovieMaker.Service.Model.Events.Di;
 
 namespace MovieMaker.Service.Provider.Di
 {

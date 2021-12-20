@@ -2,12 +2,11 @@
 
 using Microsoft.AspNetCore.Mvc;
 
-using MovieMaker.Service.Controllers.Dto;
-using MovieMaker.Service.Model.Bll;
-using MovieMaker.Service.Model.Di;
+using MovieMaker.Service.Controllers.Event.Dto;
+using MovieMaker.Service.Model.Events.Bll;
 using MovieMaker.Service.Provider.Di;
 
-namespace MovieMaker.Service.Controllers
+namespace MovieMaker.Service.Controllers.Event
 {
     [ApiController]
     [Route("api/event")]
