@@ -1,0 +1,21 @@
+@import "src/styles/colors";
+@import "src/styles/appearance";
+
+%base-input {
+  padding: 15px 20px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: $border-radius;
+  border: 2px solid transparent;
+  background-color: $background-second-color-light;
+  color: $foreground-secondary-color;
+
+  &:focus {
+    border-color: $accent-second-color;
+  }
+
+  &:invalid {
+    border-color: $danger-color;
+  }
+}

@@ -2,23 +2,7 @@
 @import "src/styles/fonts";
 @import "src/styles/interractions";
 @import "src/styles/inputs/buttons";
-
-%base-contact-input {
-  padding: 15px 20px;
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  border: 2px solid transparent;
-
-  &:focus {
-    border-color: $accent-second-color;
-  }
-
-  &:invalid {
-    border-color: $danger-color;
-  }
-}
+@import "src/styles/inputs/textFields";
 
 .contacts-page__form {
   display: grid;
@@ -37,7 +21,7 @@
   &__name,
   &__email,
   &__message {
-    @extend %base-contact-input;
+    @extend %base-input;
   }
 
   &__error {
@@ -62,10 +46,8 @@
   }
 
   &__submit {
+    @include interactive-button-base($accent-first-color);
     grid-area: submit;
-    @extend %button-base;
-    @include interactive-background($accent-first-color);
-    @include label-1;
     justify-self: center;
   }
 }

@@ -1,0 +1,48 @@
+@import "src/styles/alignment";
+@import "src/styles/colors";
+@import "src/styles/fonts";
+@import "src/styles/interractions";
+@import "src/styles/inputs/buttons";
+@import "src/styles/inputs/textFields";
+
+.auth-page-wrapper {
+  @include stretch-to-parent;
+
+  background: url("./assets/auth-background.svg") no-repeat 50%;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .auth-form {
+    @include text-1;
+    position: relative;
+
+    width: 500px;
+    height: 500px;
+    border-radius: $border-radius-modal;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 30px;
+
+    &__title {
+      @include header;
+    }
+
+    &__username,
+    &__password {
+      @extend %base-input;
+    }
+
+    &__submit {
+      @include interactive-button-base($accent-second-color);
+
+      height: fit-content;
+      width: 150px;
+      padding: 10px;
+    }
+  }
+}
