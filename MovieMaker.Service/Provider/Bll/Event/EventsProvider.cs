@@ -4,15 +4,15 @@ using MovieMaker.Service.Model.Events.Bll;
 using MovieMaker.Service.Model.Events.Di;
 using MovieMaker.Service.Provider.Di;
 
-namespace MovieMaker.Service.Provider.Bll
+namespace MovieMaker.Service.Provider.Bll.Event
 {
-    public class EventProvider : IEventProvider
+    public class EventsProvider : IEventProvider
     {
-        private readonly EventDbContext _context;
+        private readonly EventsDbContext _context;
 
-        public EventProvider()
+        public EventsProvider()
         {
-            _context = new EventDbContext();
+            _context = new EventsDbContext();
         }
 
         public async Task<IEvent> Create(CreateEventParams data)

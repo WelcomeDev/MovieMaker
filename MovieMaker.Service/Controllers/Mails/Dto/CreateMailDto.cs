@@ -1,9 +1,11 @@
 ﻿
+using MovieMaker.Service.Model.Mails.Di;
+
 using System.ComponentModel.DataAnnotations;
 
 namespace MovieMaker.Service.Controllers.Mails.Dto
 {
-    public class CreateMailDto
+    public class CreateMailDto: IMailCreate
     {
         [Required]
         [RegularExpression(@"([a-яА-Я]{2,})+")]

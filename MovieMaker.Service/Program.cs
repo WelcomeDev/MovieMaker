@@ -15,7 +15,7 @@ builder.Services.AddSwaggerGen(options =>
     {
         Version = "v1",
         Title = "Сайт-визитка видеомейкера",
-        Description = "Просто курсач, собранный на коленке",
+        Description = "Просто курсач",
         Contact = new OpenApiContact
         {
             Name = "Developer Contact",

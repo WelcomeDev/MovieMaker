@@ -2,13 +2,13 @@
 
 using MovieMaker.Service.Model.Events.Bll;
 
-namespace MovieMaker.Service.Provider.Bll
+namespace MovieMaker.Service.Provider.Bll.Event
 {
-    public class EventDbContext : DbContext
+    public class EventsDbContext : DbContext
     {
         public DbSet<Event> Events { get; set; }
 
-        public EventDbContext()
+        public EventsDbContext()
         {
 
         }

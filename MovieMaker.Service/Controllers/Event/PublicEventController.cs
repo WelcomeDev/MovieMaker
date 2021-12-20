@@ -9,12 +9,12 @@ namespace MovieMaker.Service.Controllers.Event
 {
     [ApiController]
     [Route("api/event")]
-    public class PublicController : ControllerBase
+    public class PublicEventController : ControllerBase
     {
         private readonly IMapper _mapper;
         private readonly IEventProvider _provider;
 
-        public PublicController(IEventProvider provider, IMapper mapper)
+        public PublicEventController(IEventProvider provider, IMapper mapper)
         {
             _mapper = mapper;
             _provider = provider;

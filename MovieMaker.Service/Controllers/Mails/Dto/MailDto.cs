@@ -1,6 +1,8 @@
-﻿namespace MovieMaker.Service.Controllers.Mails.Dto
+﻿using MovieMaker.Service.Model.Mails.Di;
+
+namespace MovieMaker.Service.Controllers.Mails.Dto
 {
-    public class MailDto
+    public class MailDto: IMail
     {
         public Guid Id { get; set; }
 
