@@ -27,6 +27,15 @@ builder.Services.AddSwaggerGen(options =>
 
 ConfigureMapper(builder.Services);
 ConfigureProvider(builder.Services);
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyHeader()
+               .AllowAnyMethod();
+    });
+});
 
 var app = builder.Build();
 
