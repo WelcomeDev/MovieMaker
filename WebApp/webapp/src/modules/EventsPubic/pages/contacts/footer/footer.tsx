@@ -9,7 +9,7 @@ export function Footer() {
             <h2
                 className={'footer-header'}
             >
-                Наши работа
+                Наша работа
             </h2>
             <div
                 className={'contacts__list'}
@@ -17,6 +17,7 @@ export function Footer() {
                 {
                     contactsSource.map(item =>
                         <a
+                            key={item.url}
                             className={'contact-item'}
                             href={item.url}
                             title={item.title}

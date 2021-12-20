@@ -1,6 +1,7 @@
 @import "../../../../../styles/colors";
 @import "../../../../../styles/alignment";
 @import "../../../../../styles/fonts";
+@import "src/styles/inputs/buttons";
 
 .contacts-page {
   .footer {
@@ -30,6 +31,7 @@
         height: 48px;
 
         .img {
+          @extend %button-base;
           color: $accent-second-color;
           width: 100%;
           height: 100%;

@@ -2,7 +2,7 @@
 
 @mixin interactive-background($color, $makeDark:false) {
   background: $color;
-  &:hover {
+  &:hover:not(:disabled) {
     @if ($makeDark) {
       background: blackout($color, 4);
     } @else {

@@ -9,6 +9,9 @@ $foreground-secondary-color: #727272;
 $accent-second-color: #ff0082;
 $accent-first-color: #733AC6;
 
+$danger-color: red;
+$inactive-color: darkgray;
+
 $adjust-step: 5;
 
 @function highlight($color, $level){

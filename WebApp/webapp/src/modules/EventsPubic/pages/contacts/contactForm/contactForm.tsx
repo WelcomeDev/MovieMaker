@@ -4,7 +4,12 @@ import './contactForm.scss';
 
 export function ContactForm() {
     console.log('ContactForm rerendered');
-    const { register, onSubmit, isValid } = useContactForm();
+    const {
+        register,
+        onSubmit,
+        isValid,
+        error,
+    } = useContactForm();
     return (
         <form
             action="#"
@@ -23,15 +28,21 @@ export function ContactForm() {
             <input
                 type="text"
                 className={'contacts-page__form__email'}
-                placeholder={'Ваше e-mail'}
+                placeholder={'Ваш e-mail'}
                 {...register('email', emailValidator)}
             />
             <textarea
-
                 className={'contacts-page__form__message'}
                 placeholder={'Расскажите о вашей идее!'}
                 {...register('message', messageValidator)}
             />
+            <p
+                className={'contacts-page__form__error'}
+                style={{ visibility: error ? 'visible' : 'hidden' }}
+            >
+                {error}
+            </p>
+
             <button
                 className={'contacts-page__form__submit'}
                 disabled={!isValid}
@@ -39,5 +50,5 @@ export function ContactForm() {
                 Отправить
             </button>
         </form>
-    )
+    );
 }

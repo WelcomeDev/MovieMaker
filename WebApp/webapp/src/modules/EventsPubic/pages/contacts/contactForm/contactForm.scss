@@ -1,20 +1,35 @@
+@import "src/styles/colors";
+@import "src/styles/fonts";
+@import "src/styles/interractions";
+@import "src/styles/inputs/buttons";
+
 %base-contact-input {
   padding: 15px 20px;
   display: block;
   width: 100%;
   height: 100%;
   border-radius: 10px;
+  border: 2px solid transparent;
+
+  &:focus {
+    border-color: $accent-second-color;
+  }
+
+  &:invalid {
+    border-color: $danger-color;
+  }
 }
 
 .contacts-page__form {
   display: grid;
   align-items: center;
   justify-content: center;
-  grid-template-rows: 50px minmax(50px, 175px) auto;
+  grid-template-rows: 50px minmax(50px, 175px) auto auto;
   grid-template-columns: auto auto;
   grid-template-areas:
         "name email"
         "message message"
+        "error error"
         "submit submit";
   row-gap: 20px;
   column-gap: 30px;
@@ -23,6 +38,12 @@
   &__email,
   &__message {
     @extend %base-contact-input;
+  }
+
+  &__error {
+    @include label-2;
+    grid-area: error;
+    color: $danger-color;
   }
 
   &__name {
@@ -42,5 +63,9 @@
 
   &__submit {
     grid-area: submit;
+    @extend %button-base;
+    @include interactive-background($accent-first-color);
+    @include label-1;
+    justify-self: center;
   }
 }

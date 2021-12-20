@@ -1,6 +1,6 @@
 import { EventsNavigationProvider } from './components/hooks/context/eventsNavigationContext';
 import { Header } from './components/header/header';
-import { Navigation } from '../../EventsPubic/pages/navigation';
+import { EventsNavigation, Navigation } from '../../EventsPubic/pages/navigation';
 import { SideNavigator } from './components/navigation/sideNavigator';
 import './mainPage.scss';
 import { EventStoreProvider } from '../../EventsPubic/pages/works/hooks/eventStoreProvider';
@@ -14,24 +14,15 @@ const { EVENTS, AUTH } = Navigation;
 
 const MainRoutes = () => {
     const location = useLocation();
-    const navigate = useNavigate();
-    useEffect(
-        () => {
-            if (location.pathname === '/')
-                navigate(EVENTS);
-        },
-        []);
+    const navigator = useNavigate();
+    useEffect(() => {
+        if (location.pathname === '/')
+            navigator(EventsNavigation.HELLO, { replace: true });
+    }, []);
 
-    useEffect(
-        () => {
-            console.log(location.pathname);
-        },
-        [location.pathname]);
     return (
         <Routes>
             <Route
-                // @ts-ignore
-                index
                 path={`${EVENTS}/*`}
                 element={<EventSinglePageWrapper/>}
             >

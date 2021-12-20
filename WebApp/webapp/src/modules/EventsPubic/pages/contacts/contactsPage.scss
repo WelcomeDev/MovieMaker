@@ -1,9 +1,21 @@
 @import "src/styles/alignment";
+@import "src/styles/fonts";
 
 .contacts-page {
   position: relative;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: stretch;
+  row-gap: 32px;
+
+  h2 {
+    @include header;
+    text-align: center;
+  }
+
+  p {
+    @include label-1;
+    text-align: center;
+  }
 }

@@ -4,7 +4,6 @@
 @import "../../../../styles/interractions";
 
 .hello__content {
-  @include stretch-to-parent;;
   display: grid;
   user-select: none;
 
