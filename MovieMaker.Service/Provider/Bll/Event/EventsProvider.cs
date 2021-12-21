@@ -13,6 +13,8 @@ namespace MovieMaker.Service.Provider.Bll.Event
         public EventsProvider()
         {
             _context = new EventsDbContext();
+            if (_context.Events.Count() == 0)
+                EventsInitializer.Initialize(_context);
         }
 
         public async Task<IEvent> Create(CreateEventParams data)
