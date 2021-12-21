@@ -1,7 +1,8 @@
 import './worksPage.scss';
-import { useEventStore } from './hooks/eventStoreProvider';
+import { useEventStore } from '../hooks/context/eventStoreProvider';
 import { EventItem } from './eventItem/eventItem';
 import { observer } from 'mobx-react';
+import Loader from 'react-loader-spinner';
 // import cameraMan from 'src/modules/Main/pages/assets/services/service_camera_man.svg';
 import director from 'src/modules/EventsPubic/pages/works/assets/service_director.svg';
 import motionDesign from 'src/modules/EventsPubic/pages/works/assets/service_motion_design.svg';
@@ -12,12 +13,7 @@ const images = [
 ];
 
 export const WorksPage = observer(() => {
-    const { events } = useEventStore();
-    // todo: remove!
-    // let n;
-    // for (let i = 0; i < 1e8; i++) {
-    //     n = i * i;
-    // }
+    const { events, isLoading } = useEventStore();
     return (
         <section
             className={'work-page'}
@@ -25,6 +21,12 @@ export const WorksPage = observer(() => {
             <div
                 className={'events-bar'}
             >
+                {
+                    isLoading &&
+                    <Loader
+                        type={'TailSpin'}
+                    />
+                }
                 {
                     events
                         .filter(item => item.isShown)

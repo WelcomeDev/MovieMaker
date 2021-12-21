@@ -19,6 +19,7 @@ export const Footer = memo(() => {
                         <a
                             key={item.url}
                             className={'contact-item'}
+                            target={'_blank'}
                             href={item.url}
                             title={item.title}
                         >

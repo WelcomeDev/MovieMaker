@@ -1,5 +1,5 @@
 import { lazy, memo, Suspense } from 'react';
-import { useEventsNavigation } from './components/hooks/context/eventsNavigationContext';
+import { useEventsNavigation } from './hooks/context/eventsNavigationContext';
 import './singlePage.scss';
 
 const WorksPage = lazy(() => import('../../EventsPubic/pages/works/worksPage')

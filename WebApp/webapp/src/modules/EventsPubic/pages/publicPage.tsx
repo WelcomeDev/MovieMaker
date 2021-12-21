@@ -1,4 +1,4 @@
-import { EventsNavigationProvider } from './components/hooks/context/eventsNavigationContext';
+import { EventsNavigationProvider } from './hooks/context/eventsNavigationContext';
 import { Header } from './components/header/header';
 import { SideNavigator } from './components/navigation/sideNavigator';
 import { EventSinglePageWrapper } from './eventSinglePageWrapper';

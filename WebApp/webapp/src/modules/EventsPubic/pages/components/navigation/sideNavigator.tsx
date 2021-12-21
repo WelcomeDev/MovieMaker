@@ -1,6 +1,6 @@
 import './sideNavigator.scss';
 import { SideNavigatorItem } from './sideNavigatorItem/sideNavigatorItem';
-import { publicNavigationSource } from '../hooks/publicNavigationSource';
+import { publicNavigationSource } from '../../hooks/publicNavigationSource';
 
 export const SideNavigator = () => {
     return (

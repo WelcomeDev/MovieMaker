@@ -2,7 +2,7 @@ import './header.scss';
 import appIcon from '../../../../Main/pages/assets/icon-movie-maker.png';
 import { memo } from 'react';
 import { Link } from 'react-router-dom';
-import { publicNavigationSource } from '../hooks/publicNavigationSource';
+import { publicNavigationSource } from '../../hooks/publicNavigationSource';
 
 export const Header = memo(() => {
     console.log('Header rerendered');

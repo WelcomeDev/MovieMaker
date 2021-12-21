@@ -1,5 +1,5 @@
-import { NavigationItem } from '../../../../General/model/navigationItem';
-import { EventsNavigation } from '../../../../General/model/navigation';
+import { NavigationItem } from '../../../General/model/navigationItem';
+import { EventsNavigation } from '../../../General/model/navigation';
 
 const { CONTACTS, HELLO, WORKS } = EventsNavigation;
 

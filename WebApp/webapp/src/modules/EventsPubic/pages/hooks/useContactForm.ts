@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { useMemo } from 'react';
-import { CreateMailParams } from '../../../params/createMailParams';
-import { create } from '../../../actions/mailActions';
+import { CreateMailParams } from '../../params/createMailParams';
+import { create } from '../../actions/mailActions';
 
 export function useContactForm() {
     const {

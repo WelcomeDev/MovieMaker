@@ -1,7 +1,7 @@
 import { createContext, memo, ReactNode, useCallback, useContext, useEffect, useMemo } from 'react';
 import { useLocation, useNavigate, Location } from 'react-router-dom';
-import { useDebounce } from '../../../../../General/hooks/useDebounce';
-import { EventsNavigation } from '../../../../../General/model/navigation';
+import { useDebounce } from '../../../../General/hooks/useDebounce';
+import { EventsNavigation } from '../../../../General/model/navigation';
 
 export interface EventsNavigationContext {
     navigateTo: (nav: EventsNavigation) => void;

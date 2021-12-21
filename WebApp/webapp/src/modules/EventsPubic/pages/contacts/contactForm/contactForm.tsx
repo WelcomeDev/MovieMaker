@@ -1,5 +1,5 @@
 import { emailValidator, messageValidator, nameValidator } from '../contactsValidators';
-import { useContactForm } from '../../components/hooks/useContactForm';
+import { useContactForm } from '../../hooks/useContactForm';
 import './contactForm.scss';
 import { memo } from 'react';
 

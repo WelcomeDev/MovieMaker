@@ -1,5 +1,5 @@
 import './mainPage.scss';
-import { EventStoreProvider } from '../../EventsPubic/pages/works/hooks/eventStoreProvider';
+import { EventStoreProvider } from '../../EventsPubic/pages/hooks/context/eventStoreProvider';
 import { BrowserRouter, useLocation, useNavigate, useRoutes } from 'react-router-dom';
 import { memo, Suspense, useEffect, useMemo } from 'react';
 import { AuthProvider, useAuth } from '../../Auth/hooks/context/authProvider';
@@ -8,8 +8,6 @@ import { routes } from './routes';
 import { EventsNavigation } from '../../General/model/navigation';
 
 const MainRoutes = memo(() => {
-    console.log('main routes rerendered');
-
     const location = useLocation();
     const navigator = useNavigate();
     const { user } = useAuth();
@@ -21,13 +19,6 @@ const MainRoutes = memo(() => {
         },
         []);
 
-    // useEffect(() => {
-    //     console.log('User changed');
-    //     console.log(user);
-    //     console.log('Routes changed');
-    //     console.log(appRoutes);
-    // }, [user, appRoutes]);
-
     return (
         <Suspense
             fallback={<LoadingFallback/>}
@@ -38,7 +29,6 @@ const MainRoutes = memo(() => {
 });
 
 export const MainPage = memo(() => {
-    console.log('main page rerendered');
     return (
         <div className={'wrapper'}>
             <BrowserRouter>

@@ -1,8 +1,8 @@
 import { createContext, ReactNode, useContext, useEffect, useMemo } from 'react';
 import { observer } from 'mobx-react';
-import { EventStore } from '../../../../General/store/eventStore';
+import { PublicEventStore } from '../../../store/publicEventStore';
 
-const eventStoreContext = createContext<EventStore | null>(null);
+const eventStoreContext = createContext<PublicEventStore | null>(null);
 
 export function useEventStore() {
     const context = useContext(eventStoreContext);
@@ -12,13 +12,13 @@ export function useEventStore() {
 
 export const EventStoreProvider = observer(({ children }: { children: ReactNode }) => {
 
-    const store = useMemo(() => new EventStore(), []);
+    const store = useMemo(() => new PublicEventStore(), []);
 
     useEffect(
         () => {
             store.load();
         },
-        [store]);
+        []);
 
     return (
         <eventStoreContext.Provider
