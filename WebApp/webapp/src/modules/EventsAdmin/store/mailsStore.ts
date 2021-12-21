@@ -23,8 +23,7 @@ export class MailsStore {
     markAnswered = async (id: string) => {
         this.isLoading = true;
         await markAnswered(id);
-        const answeredIndex = this.mails.findIndex(item => item.id === id);
-        this.mails.splice(answeredIndex, 1);
+        this.mails = this.mails.filter(item=>item.id !== id);
         this.isLoading = false;
     };
 }

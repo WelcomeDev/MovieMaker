@@ -13,7 +13,7 @@ export const contactsSource: ContactSourceItem[] = [
     {
         iconifyIcon: 'mdi:instagram',
         title: 'Мы в Instagram',
-        url: '',
+        url: 'https://www.instagram.com/ledokol_d/',
     },
     {
         iconifyIcon: 'mdi:github',

@@ -1,10 +1,85 @@
-.mail-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  row-gap: 32px;
+@import "src/styles/fonts";
+@import "src/styles/colors";
+@import "src/styles/appearance";
+@import "src/styles/inputs/buttons";
 
-  .mail-list-item {
-    width: 300px;
+@mixin important-font {
+  @include label-2;
+  font-weight: 600;
+}
+
+.mail-list {
+  flex: 1;
+  overflow-y: scroll;
+  padding-left: 32px;
+
+  > h2 {
+    @include header;
+  }
+
+  .items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 32px;
+
+    .mail-list-item {
+      @include stretch-to-parent;
+      align-self: flex-start;
+      display: grid;
+      width: 420px;
+      grid-template-rows: repeat(5, auto);
+      grid-template-columns: repeat(2, auto);
+      grid-template-areas:
+          ". date"
+          "author author"
+          "email email"
+          "messages messages"
+          "answer answer";
+      row-gap: 16px;
+      column-gap: 8px;
+      border: 2px solid $accent-second-color;
+      border-radius: $border-radius;
+      padding: 10px;
+
+      &__date {
+        @include important-font;
+        grid-area: date;
+      }
+
+      &__author,
+      &__email {
+        span {
+          @include important-font;
+        }
+      }
+
+      &__author {
+        grid-area: author;
+      }
+
+      &__email {
+        grid-area: email;
+      }
+
+      &__messages {
+        grid-area: messages;
+
+        h3 {
+          @include important-font;
+        }
+
+        p {
+          margin-top: 8px;
+          overflow-wrap: break-word;
+        }
+      }
+
+      &__answer {
+        @include interactive-button-base($accent-first-color);
+        grid-area: answer;
+        justify-self: center;
+      }
+    }
   }
 }

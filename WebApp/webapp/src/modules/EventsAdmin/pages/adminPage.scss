@@ -1,0 +1,7 @@
+@import "src/styles/alignment";
+
+.admin-page-wrapper {
+  @include stretch-to-parent;
+
+  display: flex;
+}
