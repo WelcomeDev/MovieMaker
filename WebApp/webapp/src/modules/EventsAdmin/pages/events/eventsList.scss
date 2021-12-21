@@ -1,0 +1,46 @@
+@import "src/styles/fonts";
+@import "src/styles/inputs/buttons";
+@import "src/styles/appearance";
+
+.events-list {
+  @include scroll-bar;
+  @include stretch-to-parent;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+  padding-top: 48px;
+
+  .event {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    max-width: 300px;
+    border: 2px solid $accent-second-color;
+    border-radius: $border-radius;
+    padding: 8px;
+
+    span {
+      @include label-2;
+      font-weight: 600;
+    }
+
+    &__edit {
+      @extend %button-base;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 32px;
+      height: 32px;
+      margin-top: 10px;
+      margin-right: 10px;
+
+      &:hover {
+        path {
+          fill: darkgoldenrod;
+        }
+      }
+    }
+  }
+}

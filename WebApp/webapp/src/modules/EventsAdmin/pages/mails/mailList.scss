@@ -9,9 +9,9 @@
 }
 
 .mail-list {
+  @include scroll-bar;
   flex: 1;
-  overflow-y: scroll;
-  padding-left: 32px;
+  padding-top: 48px;
 
   > h2 {
     @include header;

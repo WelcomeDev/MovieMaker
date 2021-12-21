@@ -2,10 +2,10 @@ import { EventDto, MovieEvent } from '../../General/model/movieEvent';
 import { globalConfig } from '../../../config/globalConfig';
 import axios from 'axios';
 
-const client = axios.create()
+const client = axios.create({ baseURL: `${globalConfig.baseUrl}/${globalConfig.eventsBaseUrl}` });
 
 export function get() {
-    client.get<EventDto[]>(globalConfig.eventsBaseUrl)
+    return client.get<EventDto[]>('list')
         .then(resp => resp.data
             .map(item => new MovieEvent(item)),
         );
