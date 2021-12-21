@@ -8,7 +8,7 @@ const requiredOption: ValidationRule<boolean> = {
 export const nameValidator: RegisterOptions = {
     required: requiredOption,
     pattern: {
-        value: /([a-яА-Я]{2,})+/,
+        value: /^(?![\s.]+$)[а-яА-Я\s.]*$/,
         message: 'Вас правда так зовут?',
     },
     maxLength: {

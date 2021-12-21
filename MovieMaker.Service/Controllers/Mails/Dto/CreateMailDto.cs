@@ -5,11 +5,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MovieMaker.Service.Controllers.Mails.Dto
 {
-    public class CreateMailDto: IMailCreate
+    public class CreateMailDto : IMailCreate
     {
         [Required]
-        [RegularExpression(@"([a-яА-Я]{2,})+")]
-        [MaxLength(30)]
+        [RegularExpression(@"^(?![\s.]+$)[а-яА-Я\s.]*$")]
         public string Name { get; set; }
 
         [Required]
@@ -17,7 +16,7 @@ namespace MovieMaker.Service.Controllers.Mails.Dto
         public string Email { get; set; }
 
         [Required]
-        [Range(25, 512)]
+        [StringLength(512, MinimumLength = 25)]
         public string Message { get; set; }
     }
 }
