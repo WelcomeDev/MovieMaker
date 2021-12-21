@@ -1,9 +1,9 @@
 import { emailValidator, messageValidator, nameValidator } from '../contactsValidators';
 import { useContactForm } from '../hooks/useContactForm';
 import './contactForm.scss';
+import { memo } from 'react';
 
-export function ContactForm() {
-    console.log('ContactForm rerendered');
+export const ContactForm = memo(() => {
     const {
         register,
         onSubmit,
@@ -51,4 +51,4 @@ export function ContactForm() {
             </button>
         </form>
     );
-}
+});

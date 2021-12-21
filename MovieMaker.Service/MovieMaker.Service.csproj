@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Compile Include="Controllers\Mails\PublicMailsController.cs" />
-    <Compile Include="Controllers\Mails\PublicMailsController1.cs" />
   </ItemGroup>
 
   <ItemGroup>

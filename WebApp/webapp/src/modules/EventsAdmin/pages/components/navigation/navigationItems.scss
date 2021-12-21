@@ -1,0 +1,46 @@
+@import "src/styles/alignment";
+@import "src/styles/fonts";
+@import "src/styles/colors";
+@import "src/styles/inputs/buttons";
+
+.side-navigation-items {
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  row-gap: 32px;
+
+  border-right: 2px solid $accent-first-color;
+
+  .nav-item {
+    @extend %button-base;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: fit-content;
+
+    p {
+      margin-left: 10px;
+    }
+
+    &__icon {
+      width: 64px;
+      height: 64px;
+    }
+  }
+
+  .expanded {
+    //width: $header-height;
+
+    p {
+      display: none;
+    }
+  }
+}

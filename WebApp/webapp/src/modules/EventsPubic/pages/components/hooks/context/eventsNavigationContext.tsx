@@ -1,7 +1,7 @@
 import { createContext, memo, ReactNode, useCallback, useContext, useEffect, useMemo } from 'react';
-import { EventsNavigation } from '../../../../../EventsPubic/pages/navigation';
 import { useLocation, useNavigate, Location } from 'react-router-dom';
 import { useDebounce } from '../../../../../General/hooks/useDebounce';
+import { EventsNavigation } from '../../../../../General/model/navigation';
 
 export interface EventsNavigationContext {
     navigateTo: (nav: EventsNavigation) => void;
@@ -28,10 +28,6 @@ export const EventsNavigationProvider = memo(({ children }: { children: ReactNod
 
     const currentInd = useMemo(() => navigationList.indexOf(location.pathname as EventsNavigation), [location.pathname]);
     const transformShift = useCallback(() => -window.innerHeight * currentInd, [currentInd]);
-
-    useEffect(() => {
-        console.log(location.pathname);
-    }, [currentInd]);
 
     useEffect(
         () => {

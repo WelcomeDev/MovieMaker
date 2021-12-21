@@ -1,9 +1,9 @@
 import { contactsSource } from '../contactsSource';
 import { Icon } from '@iconify/react';
 import './footer.scss';
+import { memo } from 'react';
 
-export function Footer() {
-    console.log('footer rerendered');
+export const Footer = memo(() => {
     return (
         <footer className={'footer'}>
             <h2
@@ -32,4 +32,4 @@ export function Footer() {
             </div>
         </footer>
     );
-}
+});

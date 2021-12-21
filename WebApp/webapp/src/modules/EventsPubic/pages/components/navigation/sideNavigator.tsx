@@ -1,15 +1,14 @@
 import './sideNavigator.scss';
-import { navigationSource } from '../hooks/navigationSource';
 import { SideNavigatorItem } from './sideNavigatorItem/sideNavigatorItem';
+import { publicNavigationSource } from '../hooks/publicNavigationSource';
 
 export const SideNavigator = () => {
-    console.log('Side navigator rerendered')
     return (
         <nav
             className={'side-navigator'}
         >
             {
-                navigationSource.map(item => <SideNavigatorItem {...item}/>)
+                publicNavigationSource.map(item => <SideNavigatorItem {...item}/>)
             }
         </nav>
     );

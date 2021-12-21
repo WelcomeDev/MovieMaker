@@ -6,7 +6,6 @@ import { MovieEvent } from '../../../../General/model/movieEvent';
 export interface EventDataProps {
     className: string;
     event: MovieEvent;
-    isHover: boolean;
 }
 
 export const EventData = memo((props: EventDataProps) => {
@@ -14,7 +13,6 @@ export const EventData = memo((props: EventDataProps) => {
     return (
         <section
             className={classNames(className, 'event-data')}
-            style={{ opacity: props.isHover ? 1 : 0 }}
         >
             <p
                 className={'event-data__title'}

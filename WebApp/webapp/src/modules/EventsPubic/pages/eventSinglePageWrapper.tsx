@@ -1,5 +1,5 @@
-import { lazy, Suspense } from 'react';
-import { useEventsNavigation } from '../../Main/pages/components/hooks/context/eventsNavigationContext';
+import { lazy, memo, Suspense } from 'react';
+import { useEventsNavigation } from './components/hooks/context/eventsNavigationContext';
 import './singlePage.scss';
 
 const WorksPage = lazy(() => import('../../EventsPubic/pages/works/worksPage')
@@ -9,7 +9,7 @@ const HelloPage = lazy(() => import('../../EventsPubic/pages/hello/helloPage')
 const ContactsPage = lazy(() => import('../../EventsPubic/pages/contacts/contactsPage')
     .then(({ ContactsPage }) => ({ default: ContactsPage })));
 
-export function EventSinglePageWrapper() {
+export const EventSinglePageWrapper = memo(() => {
 
     const { transformShift } = useEventsNavigation();
 
@@ -31,4 +31,4 @@ export function EventSinglePageWrapper() {
             </Suspense>
         </div>
     );
-}
+});

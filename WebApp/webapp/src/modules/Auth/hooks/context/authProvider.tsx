@@ -1,6 +1,6 @@
-import { createContext, ReactNode, useContext, useEffect, useMemo, useState } from 'react';
-import { User } from '../../model/user';
-import { logIn, whoAmI } from '../../actions/authActions';
+import { createContext, memo, ReactNode, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import { Authorities, User } from '../../model/user';
+import { logIn } from '../../actions/authActions';
 
 export interface AuthService {
     isLoading: boolean;
@@ -17,7 +17,7 @@ export function useAuth() {
     return context;
 }
 
-export function AuthProvider({ children }: { children: ReactNode }) {
+export const AuthProvider = memo(({ children }: { children: ReactNode }) => {
 
     const [isLoading, setIsLoading] = useState(false);
     const [user, setUser] = useState<User | null>(null);
@@ -28,19 +28,29 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         }
         , []);
 
-    function onLogIn(username: string, password: string) {
+    const onLogIn = useCallback((username: string, password: string) => {
         setIsLoading(true);
         logIn(username, password)
             .then(user => setUser(user))
             .finally(() => setIsLoading(false));
-    }
+    }, []);
 
-    function onWhoAmI() {
+    const onWhoAmI = useCallback(() => {
         setIsLoading(true);
-        whoAmI()
-            .then()
-            .finally(() => setIsLoading(false));
-    }
+        return Promise.resolve(
+            setTimeout(
+                () => {
+                    setUser({
+                        name: 'admin',
+                        authority: Authorities.ADMIN,
+                    });
+                    setIsLoading(false);
+                },
+                1000));
+        // whoAmI()
+        //     .then()
+        //     .finally(() => setIsLoading(false));
+    }, []);
 
     const memorizedValue = useMemo(
         () => ({
@@ -58,4 +68,4 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             {children}
         </authContext.Provider>
     );
-}
+});

@@ -6,6 +6,7 @@ import logo from '../../../Main/pages/assets/icon-movie-maker.png';
 import { memo } from 'react';
 
 export const HelloPage = memo(() => {
+    console.log('Hello page rendered')
     return (
         <section className={'hello__content'}>
             <div

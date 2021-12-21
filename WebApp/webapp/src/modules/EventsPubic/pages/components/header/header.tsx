@@ -1,8 +1,8 @@
 import './header.scss';
-import { navigationSource } from '../hooks/navigationSource';
-import appIcon from '../../assets/icon-movie-maker.png';
+import appIcon from '../../../../Main/pages/assets/icon-movie-maker.png';
 import { memo } from 'react';
 import { Link } from 'react-router-dom';
+import { publicNavigationSource } from '../hooks/publicNavigationSource';
 
 export const Header = memo(() => {
     console.log('Header rerendered');
@@ -25,7 +25,7 @@ export const Header = memo(() => {
                         className={'header__navigation'}
                     >
                         {
-                            navigationSource.map(item => <Link
+                            publicNavigationSource.map(item => <Link
                                 key={item.navigation}
                                 to={item.navigation.toString()}
                                 className={'header__navigation__item'}

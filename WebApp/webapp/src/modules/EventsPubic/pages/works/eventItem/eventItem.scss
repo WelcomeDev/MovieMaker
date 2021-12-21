@@ -50,3 +50,13 @@ $event-item-size: 100%;
     left: 0;
   }
 }
+
+.event-item:hover .event-data {
+  opacity: 1;
+}
+
+.event-item:hover .event-item__icon {
+  img {
+    opacity: 0.15;
+  }
+}

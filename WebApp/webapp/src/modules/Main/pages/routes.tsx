@@ -1,30 +1,15 @@
 import { Navigate, RouteObject } from 'react-router-dom';
-import { Navigation, ProtectedNavigation } from '../../EventsPubic/pages/navigation';
 import { NotFound } from './notFound/notFound';
 import { lazy } from 'react';
-import { EventsNavigationProvider } from './components/hooks/context/eventsNavigationContext';
-import { Header } from './components/header/header';
-import { SideNavigator } from './components/navigation/sideNavigator';
-import { EventSinglePageWrapper } from '../../EventsPubic/pages/eventSinglePageWrapper';
+import { Navigation } from '../../General/model/navigation';
+import { PublicPage } from '../../EventsPubic/pages/publicPage';
 
-const { EVENTS, AUTH } = Navigation;
+const { EVENTS, AUTH, MANAGE } = Navigation;
 
 const AuthPage = lazy(() => import('../../Auth/pages/authPage')
     .then(({ AuthPage }) => ({ default: AuthPage })));
 const AdminPage = lazy(() => import('../../EventsAdmin/pages/adminPage')
     .then(({ AdminPage }) => ({ default: AdminPage })));
-
-const PublicPage = () => {
-    return (
-        <EventsNavigationProvider>
-            <div className={'wrapper'}>
-                <Header/>
-                <SideNavigator/>
-                <EventSinglePageWrapper/>
-            </div>
-        </EventsNavigationProvider>
-    );
-};
 
 export const routes = (isLoggedIn: boolean): RouteObject[] => [
     {
@@ -36,7 +21,7 @@ export const routes = (isLoggedIn: boolean): RouteObject[] => [
         element: <AuthPage/>,
     },
     {
-        path: ProtectedNavigation.EVENTS,
+        path: `${MANAGE}/*`,
         element: isLoggedIn
             ? <AdminPage/>
             : <Navigate to={AUTH}/>,

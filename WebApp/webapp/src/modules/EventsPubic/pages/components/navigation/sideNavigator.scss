@@ -1,6 +1,6 @@
-@import "src/styles/colors";
-@import "src/styles/interractions";
-@import "src/styles/alignment";
+@import "../../../../../styles/colors";
+@import "../../../../../styles/interractions";
+@import "../../../../../styles/alignment";
 
 .side-navigator {
   @include flex(true);

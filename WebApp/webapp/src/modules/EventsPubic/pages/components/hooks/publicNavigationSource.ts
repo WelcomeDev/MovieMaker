@@ -1,14 +1,9 @@
-import { EventsNavigation, NavigationType } from '../../../../EventsPubic/pages/navigation';
-
-export interface NavigationItem {
-    title: string;
-    icon: string;
-    navigation: NavigationType;
-}
+import { NavigationItem } from '../../../../General/model/navigationItem';
+import { EventsNavigation } from '../../../../General/model/navigation';
 
 const { CONTACTS, HELLO, WORKS } = EventsNavigation;
 
-export const navigationSource: NavigationItem[] = [
+export const publicNavigationSource: NavigationItem[] = [
     {
         title: 'главная',
         icon: '',
