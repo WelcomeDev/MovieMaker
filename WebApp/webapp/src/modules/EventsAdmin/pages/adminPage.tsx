@@ -1,32 +1,30 @@
 import { NavigationItems } from './components/navigation/navigationItems';
-import { memo } from 'react';
 import { MailsProvider } from '../hooks/context/mailsProvider';
 import { MailsList } from './mails/mailsList';
 import './adminPage.scss';
 import { AdminEventsProvider } from '../hooks/context/adminEventsProvider';
-import { useLocation } from 'react-router-dom';
-import { AdminNavigation } from '../../General/model/navigation';
 import { EventsList } from './events/eventsList';
+import { useState } from 'react';
+import { ADMIN_NAV } from './components/ADMIN_NAV';
 
-export const AdminPage = memo(() => {
-    const location = useLocation();
+export const AdminPage = () => {
+
+    const [location, setLocation] = useState(ADMIN_NAV.EVENTS)
+    console.log('admin page rendered')
     return (
         <MailsProvider>
             <AdminEventsProvider>
                 <section
                     className={'admin-page-wrapper'}
                 >
-                    <NavigationItems/>
+                    <NavigationItems update={setLocation}/>
                     {
-                        location.pathname === AdminNavigation.MAILS &&
-                        <MailsList/>
-                    }
-                    {
-                        location.pathname === AdminNavigation.EVENTS &&
-                        <EventsList/>
+                       location === ADMIN_NAV.EMAIL
+                            ? <MailsList/>
+                            : <EventsList/>
                     }
                 </section>
             </AdminEventsProvider>
         </MailsProvider>
     );
-});
+};

@@ -1,14 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MovieMaker.Service.Model.Auth
+namespace MovieMaker.Service.Controllers.Auth.Dto
 {
-    public class User
+    public class AuthDto
     {
-        [Key]
+        [Required]
         public string Username { get; set; }
 
+        [Required]
         public string Password { get; set; }
-
-        public Authority Authority { get; set; }
     }
 }

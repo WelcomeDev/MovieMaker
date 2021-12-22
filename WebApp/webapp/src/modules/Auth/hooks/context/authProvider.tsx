@@ -5,8 +5,7 @@ import { logIn } from '../../actions/authActions';
 export interface AuthService {
     isLoading: boolean;
     user: User | null;
-    logIn: (username: string, password: string) => void;
-    whoAmI: () => void;
+    logIn: (username: string, password: string) => Promise<void>;
 }
 
 const authContext = createContext<AuthService | null>(null);
@@ -22,41 +21,17 @@ export const AuthProvider = memo(({ children }: { children: ReactNode }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [user, setUser] = useState<User | null>(null);
 
-    useEffect(
-        () => {
-            onWhoAmI();
-        }
-        , []);
-
     const onLogIn = useCallback((username: string, password: string) => {
         setIsLoading(true);
-        logIn(username, password)
+        return logIn(username, password)
             .then(user => setUser(user))
             .finally(() => setIsLoading(false));
-    }, []);
-
-    const onWhoAmI = useCallback(() => {
-        setIsLoading(true);
-        return Promise.resolve(
-            setTimeout(
-                () => {
-                    setUser({
-                        name: 'admin',
-                        authority: Authorities.ADMIN,
-                    });
-                    setIsLoading(false);
-                },
-                1000));
-        // whoAmI()
-        //     .then()
-        //     .finally(() => setIsLoading(false));
     }, []);
 
     const memorizedValue = useMemo(
         () => ({
             user,
             isLoading,
-            whoAmI: onWhoAmI,
             logIn: onLogIn,
         }),
         [user, isLoading]);

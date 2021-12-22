@@ -1,9 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-
+﻿using MovieMaker.Service.Controllers.Auth.Dto;
 using MovieMaker.Service.Controllers.Event.Dto;
+using MovieMaker.Service.Model.Auth;
 using MovieMaker.Service.Model.Events.Bll;
 using MovieMaker.Service.Model.Events.Di;
+using MovieMaker.Service.Provider.Bll.Auth;
 using MovieMaker.Service.Provider.Bll.Event;
 using MovieMaker.Service.Provider.Bll.Mail;
 using MovieMaker.Service.Provider.Di;
@@ -19,6 +19,7 @@ namespace MovieMaker.Service
                 config.CreateMap<IEvent, EventDto>();
                 config.CreateMap<UpdateEventDto, UpdateEventParams>();
                 config.CreateMap<CreateEventDto, CreateEventParams>();
+                config.CreateMap<User, UserDto>();
             });
         }
 
@@ -26,7 +27,7 @@ namespace MovieMaker.Service
         {
             services.AddSingleton<IEventProvider, EventsProvider>();
             services.AddSingleton<IMailsProvider, MailsProvider>();
-            //services.AddSingleton<IAuthProvider, AuthProvider>();
+            services.AddSingleton<IAuthProvider, AuthProvider>();
         }
     }
 }

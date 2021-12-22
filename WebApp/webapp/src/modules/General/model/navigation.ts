@@ -12,8 +12,8 @@ export enum EventsNavigation {
 }
 
 export enum AdminNavigation {
-    EVENTS = '/manage/events',
-    MAILS = '/manage/mails'
+    EVENTS = 'EVENTS',
+    MAILS = 'EMAIL',
 }
 
 export type NavigationType = Navigation | EventsNavigation | AdminNavigation;

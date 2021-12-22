@@ -21,7 +21,7 @@ export const routes = (isLoggedIn: boolean): RouteObject[] => [
         element: <AuthPage/>,
     },
     {
-        path: `${MANAGE}/*`,
+        path: MANAGE,
         element: isLoggedIn
             ? <AdminPage/>
             : <Navigate to={AUTH}/>,

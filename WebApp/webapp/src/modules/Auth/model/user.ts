@@ -1,11 +1,11 @@
 export enum Authorities {
     // может фсе
-    ADMIN = 'ADMIN',
+    ADMIN = 'Admin',
     // может только отвечать на письма
-    MANAGER = 'MANAGER',
+    MANAGER = 'Manager',
 }
 
 export interface User {
-    name: string;
+    username: string;
     authority: Authorities;
 }

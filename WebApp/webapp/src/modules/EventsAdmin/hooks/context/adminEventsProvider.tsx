@@ -23,11 +23,11 @@ export const AdminEventsProvider = observer(({ children }: { children: ReactNode
         []);
 
     return (
-        user?.authority === Authorities.ADMIN
-            ? <adminEventsContext.Provider value={adminEventStore}>
-                {children}
-            </adminEventsContext.Provider>
-            : <></>
+        // user?.authority === Authorities.ADMIN
+        <adminEventsContext.Provider value={adminEventStore}>
+            {children}
+        </adminEventsContext.Provider>
+        // : <>{children}</>
     );
 });
 
